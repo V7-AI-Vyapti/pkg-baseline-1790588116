@@ -1,0 +1,23 @@
+# Deploy build for pkg-baseline-1790588116.
+# Takes precedence over repo-root .dockerignore, which excludes all of generated/*.
+
+node_modules
+.pnpm-store
+.turbo
+dist
+build
+.env
+.env.*
+.git
+.gitignore
+
+# Keep other runtime-generated apps out of the build context.
+generated/*
+!generated/pkg-baseline-1790588116/
+!generated/pkg-baseline-1790588116/**
+
+# Exclude heavy artifacts inside generated projects.
+generated/**/node_modules
+generated/**/dist
+generated/**/.turbo
+generated/**/tmp
